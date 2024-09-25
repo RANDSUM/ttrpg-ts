@@ -1,13 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
-      "~src/*": [
-        "./src/*"
-      ]
+      "~src/*": ["./src/*"]
     },
-    "lib": [
-      "ESNext"
-    ],
+    "lib": ["ESNext"],
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "bundler",
@@ -21,8 +17,6 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": false,
-    "types": [
-      "bun-types"
-    ]
+    "types": ["bun-types"]
   }
 }
