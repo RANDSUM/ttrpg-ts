@@ -1,4 +1,4 @@
-import { roll as baseRoll } from '~src/roll'
+import { roll as baseRoll } from 'randsum'
 import { RollResult } from './types'
 
 function interpretResult(result: number): RollResult {

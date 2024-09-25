@@ -1,4 +1,4 @@
-import { roll as baseRoll } from '~src/roll'
+import { roll as baseRoll } from 'randsum'
 import { RollMods } from './type'
 
 function roll(bonus: number = 0, mod: RollMods): number {

@@ -1,6 +1,6 @@
 import { RollTables } from './tables'
 import { CoreMechanic, Entry, Table } from './types'
-import { roll as baseRoll } from '~src/roll'
+import { roll as baseRoll } from 'randsum'
 
 function interpretResult(result: number): CoreMechanic {
   switch (true) {
