@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": false,
   "author": "Alex Jarvis",
-  "icon": "https://raw.githubusercontent.com/RANDSUM/randsum-ts/main/icon.webp",
   "description": "A collection of utilities for playing several popular TTRPGs - powered by randsum-ts",
   "license": "MIT",
-  "homepage": "https://github.com/RANDSUM/randsum-ts ",
+  "homepage": "https://github.com/RANDSUM/ttrpg-ts",
   "keywords": [
     "blades in the dark",
     "bitd",
