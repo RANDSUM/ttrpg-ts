@@ -1,0 +1,37 @@
+name: Publish + Release on Version Bump
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      INPUT_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install deps
+        run: bun install
+
+      - name: Build
+        run: bun run build
+
+      - uses: JS-DevTools/npm-publish@v1
+        id: publish
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create Release
+        if: steps.publish.outputs.type != 'none'
+        id: release
+        uses: softprops/action-gh-release@HEAD
+        with:
+          tag_name: v${{ steps.publish.outputs.version }}
+          append_body: true
+          generate_release_notes: true
