@@ -1,18 +1,18 @@
 import { roll as baseRoll } from 'randsum'
-import { RollResult } from './types'
+import { Root } from './types'
 
-function interpretResult(result: number): RollResult {
+function interpretResult(result: number): Root.RollResult {
   switch (true) {
     case result >= 10:
-      return RollResult.success
+      return Root.RollResult.success
     case result >= 7 && result <= 9:
-      return RollResult.partialSuccess
+      return Root.RollResult.partialSuccess
     default:
-      return RollResult.failure
+      return Root.RollResult.failure
   }
 }
 
-function roll(bonus: number): [RollResult, number] {
+function roll(bonus: number): [Root.RollResult, number] {
   const { total } = baseRoll({
     quantity: 2,
     sides: 6,
@@ -21,4 +21,4 @@ function roll(bonus: number): [RollResult, number] {
   return [interpretResult(total), total]
 }
 
-export default { interpretResult, roll, RollResult }
+export default { interpretResult, roll, ...Root }
