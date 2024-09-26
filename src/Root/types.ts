@@ -1,5 +1,5 @@
 export enum RollResult {
-  success = 'Success',
-  partialSuccess = 'Partial Success',
-  failure = 'Failure'
+  strongHit = 'Strong Hit',
+  weakHit = 'Weak Hit',
+  miss = 'miss'
 }
