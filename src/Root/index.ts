@@ -1,6 +1,6 @@
 import { roll as baseRoll } from 'randsum'
 
-export enum RollResult {
+enum RollResult {
   success = 'Success',
   partialSuccess = 'Partial Success',
   failure = 'Failure'
@@ -25,4 +25,4 @@ function roll(bonus: number): [RollResult, number] {
   })
   return [interpretResult(total), total]
 }
-export default { interpretResult, roll, RollResult }
+export default { interpretResult, roll }
