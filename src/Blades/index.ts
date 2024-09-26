@@ -1,4 +1,4 @@
-import { roll as baseRoll, DicePoolType, RandsumRollResult } from 'randsum'
+import { roll as baseRoll, NumericalRollResult } from 'randsum'
 import * as BladesTypes from './types'
 
 function interpretHit(sortedRolls: number[]): BladesTypes.Hit {
@@ -18,9 +18,7 @@ function interpretHit(sortedRolls: number[]): BladesTypes.Hit {
   }
 }
 
-function roll(
-  count: number
-): [BladesTypes.Hit, RandsumRollResult<number, DicePoolType.numerical>] {
+function roll(count: number): [BladesTypes.Hit, NumericalRollResult] {
   const rollResult = baseRoll({
     sides: 6,
     quantity: count

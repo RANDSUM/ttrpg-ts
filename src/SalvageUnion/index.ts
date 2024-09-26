@@ -1,6 +1,6 @@
 import { RollTables } from './tables'
 import * as SalvageUnionTypes from './types'
-import { roll as baseRoll, DicePoolType, RandsumRollResult } from 'randsum'
+import { roll as baseRoll, NumericalRollResult } from 'randsum'
 
 function interpretResult(result: number): SalvageUnionTypes.CoreMechanic {
   switch (true) {
@@ -19,10 +19,7 @@ function interpretResult(result: number): SalvageUnionTypes.CoreMechanic {
 
 function roll(
   tableKey: SalvageUnionTypes.Table = SalvageUnionTypes.Table.coreMechanic
-): [
-  SalvageUnionTypes.TableResult,
-  RandsumRollResult<number, DicePoolType.numerical>
-] {
+): [SalvageUnionTypes.TableResult, NumericalRollResult] {
   const result = baseRoll(20)
   return [RollTables[tableKey][interpretResult(result.total)], result]
 }
