@@ -106,7 +106,7 @@ export const CoreMechanicTable: SalvageUnionTypes.TableType = {
   [SalvageUnionTypes.Hit.cascadeFailure]: {
     label: SalvageUnionTypes.Hit.cascadeFailure,
     description:
-      'Something has gone terribly wrong. You suffer a severe conse- quence of the Mediator’s choice. When attacking, you miss the target and suffer a Setback chosen by the Mediator.'
+      'Something has gone terribly wrong. You suffer a severe consequence of the Mediator’s choice. When attacking, you miss the target and suffer a Setback chosen by the Mediator.'
   }
 }
 
