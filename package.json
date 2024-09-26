@@ -1,6 +1,6 @@
 {
   "name": "ttrpg-ts",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "private": false,
   "author": "Alex Jarvis",
   "description": "A collection of utilities for playing several popular TTRPGs - powered by randsum-ts",

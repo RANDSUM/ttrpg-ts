@@ -1,4 +1,4 @@
-export enum CoreMechanic {
+export enum Hit {
   nailedIt = 'Nailed It',
   success = 'Success',
   toughChoice = 'Tough Choice',
@@ -26,5 +26,5 @@ export type TableResult = {
 }
 
 export type TableType = {
-  [key in CoreMechanic]: TableResult
+  [key in Hit]: TableResult
 }
