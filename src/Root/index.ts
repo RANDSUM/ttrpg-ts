@@ -21,4 +21,4 @@ function roll(bonus: number): [Root.RollResult, number] {
   return [interpretResult(total), total]
 }
 
-export default { interpretResult, roll, ...Root }
+export default { interpretResult, roll }
