@@ -20,11 +20,15 @@ export enum Table {
   mechSalvage = 'Mech Salvage'
 }
 
-export type TableResult = {
+export type TableListing = {
   label: string
   description: string
 }
 
+export type TableResult = {
+  hit: Hit
+} & TableListing
+
 export type TableType = {
-  [key in Hit]: TableResult
+  [key in Hit]: TableListing
 }

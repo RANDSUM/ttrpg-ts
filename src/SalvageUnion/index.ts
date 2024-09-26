@@ -2,7 +2,7 @@ import { RollTables } from './tables'
 import * as SalvageUnionTypes from './types'
 import { D20 } from 'randsum'
 
-function interpretResult(result: number): SalvageUnionTypes.Hit {
+function interpretHit(result: number): SalvageUnionTypes.Hit {
   switch (true) {
     case result === 20:
       return SalvageUnionTypes.Hit.nailedIt
@@ -21,9 +21,10 @@ function roll(
   tableKey: SalvageUnionTypes.Table = SalvageUnionTypes.Table.coreMechanic
 ): [SalvageUnionTypes.TableResult, number] {
   const total = D20.roll()
-  return [RollTables[tableKey][interpretResult(total)], total]
+  const hit = interpretHit(total)
+  return [{ ...RollTables[tableKey][hit], hit }, total]
 }
 
 import * as tables from './tables'
 
-export const SalvageUnion = { interpretResult, roll, tables }
+export const SalvageUnion = { interpretHit, roll, tables }
