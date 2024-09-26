@@ -1,28 +1,32 @@
 import { RollTables } from './tables'
-import { CoreMechanic, Entry, Table } from './types'
-import { roll as baseRoll } from 'randsum'
+import * as SalvageUnionTypes from './types'
+import { roll as baseRoll, DicePoolType, RandsumRollResult } from 'randsum'
 
-function interpretResult(result: number): CoreMechanic {
+function interpretResult(result: number): SalvageUnionTypes.CoreMechanic {
   switch (true) {
     case result === 20:
-      return CoreMechanic.nailedIt
+      return SalvageUnionTypes.CoreMechanic.nailedIt
     case result >= 11 && result <= 19:
-      return CoreMechanic.success
+      return SalvageUnionTypes.CoreMechanic.success
     case result >= 6 && result <= 10:
-      return CoreMechanic.toughChoice
+      return SalvageUnionTypes.CoreMechanic.toughChoice
     case result >= 2 && result <= 5:
-      return CoreMechanic.failure
+      return SalvageUnionTypes.CoreMechanic.failure
     default:
-      return CoreMechanic.cascadeFailure
+      return SalvageUnionTypes.CoreMechanic.cascadeFailure
   }
 }
 
-function roll(tableKey: Table = Table.coreMechanic): [Entry, number] {
-  const { total } = baseRoll(20)
-  return [RollTables[tableKey][interpretResult(total)], total]
+function roll(
+  tableKey: SalvageUnionTypes.Table = SalvageUnionTypes.Table.coreMechanic
+): [
+  SalvageUnionTypes.TableResult,
+  RandsumRollResult<number, DicePoolType.numerical>
+] {
+  const result = baseRoll(20)
+  return [RollTables[tableKey][interpretResult(result.total)], result]
 }
 
-import * as types from './types'
 import * as tables from './tables'
 
-export default { interpretResult, roll, ...tables, ...types }
+export const SalvageUnion = { interpretResult, roll, tables }

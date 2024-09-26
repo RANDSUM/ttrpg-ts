@@ -20,11 +20,11 @@ export enum Table {
   mechSalvage = 'Mech Salvage'
 }
 
-export type Entry = {
+export type TableResult = {
   label: string
   description: string
 }
 
 export type TableType = {
-  [key in CoreMechanic]: Entry
+  [key in CoreMechanic]: TableResult
 }

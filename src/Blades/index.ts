@@ -1,33 +1,31 @@
 import { roll as baseRoll } from 'randsum'
-import { RollResult } from './types'
+import * as BladesTypes from './types'
 
-function interpretResult(sortedRolls: number[]): RollResult {
+function interpretHit(sortedRolls: number[]): BladesTypes.Hit {
   const sixes = sortedRolls.filter((r) => r === 6).length
   if (sixes >= 2) {
-    return RollResult.CRITICAL
+    return BladesTypes.Hit.CRITICAL
   }
 
   switch (sortedRolls[0]) {
     case 6:
-      return RollResult.SUCCESS
+      return BladesTypes.Hit.SUCCESS
     case 5:
     case 4:
-      return RollResult.PARTIAL
+      return BladesTypes.Hit.PARTIAL
     default:
-      return RollResult.FAILURE
+      return BladesTypes.Hit.FAILURE
   }
 }
 
-function roll(count: number): [RollResult, number[]] {
+function roll(count: number): [BladesTypes.Hit, number[]] {
   const rollResult = baseRoll({
     sides: 6,
     quantity: count
   })
   const rolls = rollResult.rawResult.flat().sort((a, b) => a - b)
 
-  return [interpretResult(rolls), rolls]
+  return [interpretHit(rolls), rolls]
 }
 
-import * as types from './types'
-
-export default { roll, interpretResult, ...types }
+export const Blades = { roll, interpretHit }

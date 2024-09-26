@@ -1,4 +1,4 @@
-export enum RollResult {
+export enum Hit {
   CRITICAL = 'critical',
   SUCCESS = 'success',
   PARTIAL = 'partial',
