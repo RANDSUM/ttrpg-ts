@@ -1,7 +1,10 @@
-import { roll as baseRoll } from 'randsum'
+import { roll as baseRoll, DicePoolType, RandsumRollResult } from 'randsum'
 import * as DnD5ETypes from './types'
 
-function roll(bonus: number = 0, mod: DnD5ETypes.RollMods): number {
+function roll(
+  bonus: number = 0,
+  mod: DnD5ETypes.RollMods
+): [number, RandsumRollResult<number, DicePoolType.numerical>] {
   const isAdvantage = DnD5ETypes.RollMods.Advantage === mod
   const isDisadvantage = DnD5ETypes.RollMods.Disadvantage === mod
   const rollResult = baseRoll({
@@ -14,7 +17,7 @@ function roll(bonus: number = 0, mod: DnD5ETypes.RollMods): number {
     }
   })
 
-  return rollResult.total
+  return [rollResult.total, rollResult]
 }
 
 export const DnD5E = { roll }
