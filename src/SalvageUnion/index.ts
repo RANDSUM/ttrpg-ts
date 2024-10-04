@@ -1,4 +1,4 @@
-import { RollTables } from './tables'
+import { AllRollTables } from './tables'
 import * as SalvageUnionTypes from './types'
 import { D20 } from 'randsum'
 
@@ -18,11 +18,12 @@ function interpretHit(result: number): SalvageUnionTypes.Hit {
 }
 
 function roll(
-  tableKey: SalvageUnionTypes.Table = SalvageUnionTypes.Table.coreMechanic
+  tableKey: SalvageUnionTypes.TableName = SalvageUnionTypes.TableName
+    .coreMechanic
 ): [SalvageUnionTypes.TableResult, number] {
   const total = D20.roll()
   const hit = interpretHit(total)
-  return [{ ...RollTables[tableKey][hit], hit }, total]
+  return [{ ...AllRollTables[tableKey][hit], hit }, total]
 }
 
 import * as tables from './tables'

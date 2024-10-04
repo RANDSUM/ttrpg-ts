@@ -321,3 +321,9 @@ export const RollTables = {
   pc: PCTables,
   npc: NPCTables
 }
+
+export const AllRollTables = {
+  [SalvageUnionTypes.TableName.coreMechanic]: CoreMechanicTable,
+  ...PCTables,
+  ...NPCTables
+}
