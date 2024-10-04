@@ -306,7 +306,7 @@ export const NPCTables = {
   [SalvageUnionTypes.TableName.npcMorale]: NPMoraleTable
 }
 
-export const GenericTables = {
+export const PCTables = {
   [SalvageUnionTypes.TableName.groupInitiative]: GroupInitiativeTable,
   [SalvageUnionTypes.TableName.retreat]: RetreatTable,
   [SalvageUnionTypes.TableName.criticalDamage]: CriticalDamageTable,
@@ -318,6 +318,6 @@ export const GenericTables = {
 
 export const RollTables = {
   [SalvageUnionTypes.TableName.coreMechanic]: CoreMechanicTable,
-  generic: GenericTables,
+  pc: PCTables,
   npc: NPCTables
 }
