@@ -301,19 +301,23 @@ export const MechSalvageTable: SalvageUnionTypes.TableType = {
   }
 }
 export const NPCTables = {
-  [SalvageUnionTypes.Table.npcAction]: NPCActionTable,
-  [SalvageUnionTypes.Table.npcReaction]: NPCReactionTable,
-  [SalvageUnionTypes.Table.npcMorale]: NPMoraleTable
+  [SalvageUnionTypes.TableName.npcAction]: NPCActionTable,
+  [SalvageUnionTypes.TableName.npcReaction]: NPCReactionTable,
+  [SalvageUnionTypes.TableName.npcMorale]: NPMoraleTable
+}
+
+export const GenericTables = {
+  [SalvageUnionTypes.TableName.groupInitiative]: GroupInitiativeTable,
+  [SalvageUnionTypes.TableName.retreat]: RetreatTable,
+  [SalvageUnionTypes.TableName.criticalDamage]: CriticalDamageTable,
+  [SalvageUnionTypes.TableName.criticalInjury]: CriticalInjuryTable,
+  [SalvageUnionTypes.TableName.reactorOverload]: ReactorOverloadTable,
+  [SalvageUnionTypes.TableName.areaSalvage]: AreaSalvageTable,
+  [SalvageUnionTypes.TableName.mechSalvage]: MechSalvageTable
 }
 
 export const RollTables = {
-  ...NPCTables,
-  [SalvageUnionTypes.Table.coreMechanic]: CoreMechanicTable,
-  [SalvageUnionTypes.Table.groupInitiative]: GroupInitiativeTable,
-  [SalvageUnionTypes.Table.retreat]: RetreatTable,
-  [SalvageUnionTypes.Table.criticalDamage]: CriticalDamageTable,
-  [SalvageUnionTypes.Table.criticalInjury]: CriticalInjuryTable,
-  [SalvageUnionTypes.Table.reactorOverload]: ReactorOverloadTable,
-  [SalvageUnionTypes.Table.areaSalvage]: AreaSalvageTable,
-  [SalvageUnionTypes.Table.mechSalvage]: MechSalvageTable
+  [SalvageUnionTypes.TableName.coreMechanic]: CoreMechanicTable,
+  generic: GenericTables,
+  npc: NPCTables
 }

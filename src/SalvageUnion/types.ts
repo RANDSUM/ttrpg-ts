@@ -6,7 +6,7 @@ export enum Hit {
   cascadeFailure = 'Cascade Failure'
 }
 
-export enum Table {
+export enum TableName {
   npcAction = 'NPC Action',
   npcReaction = 'Reaction',
   npcMorale = 'Morale',
