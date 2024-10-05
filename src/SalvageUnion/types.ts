@@ -29,6 +29,7 @@ export type TableResult = {
   hit: Hit
   tableName: TableName
   table: TableType
+  roll: number
 } & TableListing
 
 export type TableType = {

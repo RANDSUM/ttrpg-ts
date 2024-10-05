@@ -25,7 +25,7 @@ function roll(
   const hit = interpretHit(total)
   const table = AllRollTables[tableName]
   const result = table[hit]
-  return [{ ...result, hit, table, tableName }, total]
+  return [{ ...result, hit, table, tableName, roll: total }, total]
 }
 
 import * as tables from './tables'
