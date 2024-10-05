@@ -27,6 +27,8 @@ export type TableListing = {
 
 export type TableResult = {
   hit: Hit
+  tableName: TableName
+  table: TableType
 } & TableListing
 
 export type TableType = {

@@ -18,12 +18,14 @@ function interpretHit(result: number): SalvageUnionTypes.Hit {
 }
 
 function roll(
-  tableKey: SalvageUnionTypes.TableName = SalvageUnionTypes.TableName
+  tableName: SalvageUnionTypes.TableName = SalvageUnionTypes.TableName
     .coreMechanic
 ): [SalvageUnionTypes.TableResult, number] {
   const total = D20.roll()
   const hit = interpretHit(total)
-  return [{ ...AllRollTables[tableKey][hit], hit }, total]
+  const table = AllRollTables[tableName]
+  const result = table[hit]
+  return [{ ...result, hit, table, tableName }, total]
 }
 
 import * as tables from './tables'
