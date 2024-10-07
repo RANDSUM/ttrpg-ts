@@ -74,7 +74,7 @@
     "@size-limit/preset-small-lib": "^11.1.5",
     "@types/eslint__js": "^8.42.3",
     "@types/uuid": "^10.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
     "@typescript-eslint/parser": "^5.62.0",
     "bun-plugin-dts": "^0.2.3",
     "bun-types": "latest",
